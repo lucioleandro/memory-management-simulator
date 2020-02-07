@@ -1,0 +1,42 @@
+
+<app-memoria [memoria] = "memoria"></app-memoria>
+
+<div class="form" style="margin-top: 30px;">
+    <p-fieldset legend="Registre o processo" [toggleable] = "true">
+        <form action="" [formGroup]="cadastroProcesso">
+            <div class="ui-g form-group">
+                <div class="ui-g-12 ui-md-4">
+                    <h4 class="label campo-obrigatorio">Processo*</h4>
+                    <input #nomeInput type="text" pInputText placeholder="Processo"
+                        formControlName = "nome"  [(ngModel)] = "processo.nome">
+                </div>
+            </div>
+
+            <div class="ui-g form-group">
+                <div class="ui-g-12 ui-md-4">
+                    <h4 class="label campo-obrigatorio">Tipo Processo*</h4>
+                    <p-dropdown type="text"
+                                formControlName = "tipo"
+                                [options] = "tiposProcesso"
+                                 placeholder="Tipo do processo"
+                                 [(ngModel)] = "processo.tipoProcesso"
+                                >
+                    </p-dropdown>
+                </div>
+            </div>
+
+            <div class="ui-g form-group">
+                <div class="ui-g-12 ui-md-4">
+                    <h4 class="label campo-obrigatorio">Tamanho do processo*</h4>
+                    <input pInputText type="number" pKeyFilter="int" placeholder="Processo"
+                        formControlName = "tamanho" [(ngModel)] = "processo.tamanhoProcesso">
+                </div>
+            </div>
+        </form>
+        <button pButton type="button" label="Registrar processo" 
+        style="margin-top:20px" (click)="registraProcesso()"></button>
+        <button pButton type="button" label="Resetar Memória" 
+        style="margin-top:20px;margin-left: 5px;" (click)="resetarMemoria()"></button>
+    </p-fieldset>
+
+</div>
